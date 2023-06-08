@@ -53,4 +53,9 @@ userSchema.virtual("namedEmail").get(function () {
   return `${this.name} <> ${this.email}`;
 });
 
+userSchema.pre("save", function (next) {
+  console.log("update the updatedAt field here.");
+  next();
+});
+
 module.exports = mongoose.model("User", userSchema);
